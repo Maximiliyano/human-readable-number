@@ -1,5 +1,3 @@
-
-
 var nOne = [ "", "one ", "two ", "three ", "four ",
     "five ", "six ", "seven ", "eight ",
      "nine ", "ten ", "eleven ", "twelve ",
@@ -36,16 +34,16 @@ module.exports = function toReadable (number)
     var out = "";
 
     out += convertToWords(parseInt(number / 10000000),
-    "crore ");
+    "crore");
 
     out += convertToWords(parseInt((number / 100000) % 100),
-    "lakh ");
+    "lakh");
 
     out += convertToWords(parseInt((number / 1000) % 100),
-    "thousand ");
+    "thousand");
 
     out += convertToWords(parseInt((number / 100) % 10),
-    "hundred ");
+    "hundred");
 
     out += convertToWords(parseInt(number % 100), "");
 
