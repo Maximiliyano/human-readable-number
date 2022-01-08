@@ -11,7 +11,7 @@ var nTen = [ "", "", "twenty ", "thirty ", "forty ",
 "fifty ", "sixty ", "seventy ", "eighty ",
         "ninety " ];
 
-function convertToWords(n, s)
+function convertToWords(number, s)
 {
 
     var arr = "";
@@ -21,7 +21,7 @@ function convertToWords(n, s)
     }
     else
     {
-        arr += one[number];
+        arr += nOne[number];
     }
     if (number != 0) 
     {
@@ -35,23 +35,19 @@ module.exports = function toReadable (number)
 {
     var out = "";
 
-    out += numToWords(parseInt(number / 10000000),
+    out += convertToWords(parseInt(number / 10000000),
     "crore ");
 
-    out += numToWords(parseInt((number / 100000) % 100),
+    out += convertToWords(parseInt((number / 100000) % 100),
     "lakh ");
 
-    out += numToWords(parseInt((number / 1000) % 100),
+    out += convertToWords(parseInt((number / 1000) % 100),
     "thousand ");
 
-    out += numToWords(parseInt((number / 100) % 10),
+    out += convertToWords(parseInt((number / 100) % 10),
     "hundred ");
 
-    if (number > 100 && number % 100 > 0) {
-        out += "and ";
-    }
-
-    out += numToWords(parseInt(number % 100), "");
+    out += convertToWords(parseInt(number % 100), "");
 
     return out;
 }
